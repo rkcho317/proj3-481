@@ -81,9 +81,9 @@ class ReflexAgent(Agent):
             if min_fooddis >= dist or min_fooddis == -1:
                 min_fooddis = dist
         
+
         
-        
-        return successorGameState.getScore() + (1 /float(min_fooddis)) - (1/float(distances_to_ghosts)) - proximity_to_ghosts
+        return successorGameState.getScore() 
 
 def scoreEvaluationFunction(currentGameState):
     """
