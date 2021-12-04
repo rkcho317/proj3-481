@@ -75,21 +75,15 @@ class ReflexAgent(Agent):
 
         "*** YOUR CODE HERE ***"
         newFoodList = newFood.asList()
-        min_food_distance = -1
+        min_fooddis = -1
         for food in newFoodList:
-            distance = util.manhattanDistance(newPos,food)
-            if min_food_distance >= distance or min_food_distance == -1:
-                min_food_distance = distance
+            dist = util.manhattanDistance(newPos,food)
+            if min_fooddis >= dist or min_fooddis == -1:
+                min_fooddis = dist
         
-        distances_to_ghosts = 1
-        proximity_to_ghosts = 0
-        for ghost_state in successorGameState.getGhostPositions():
-            distance = util.manhattanDistance(newPos,ghost_state)
-            distances_to_ghosts += distance
-            if distance <= 1:
-                proximity_to_ghosts += 1
         
-        return successorGameState.getScore() + (1 /float(min_food_distance)) - (1/float(distances_to_ghosts)) - proximity_to_ghosts
+        
+        return successorGameState.getScore() + (1 /float(min_fooddis)) - (1/float(distances_to_ghosts)) - proximity_to_ghosts
 
 def scoreEvaluationFunction(currentGameState):
     """
@@ -150,6 +144,7 @@ class MinimaxAgent(MultiAgentSearchAgent):
         Returns whether or not the game state is a losing state
         """
         "*** YOUR CODE HERE ***"
+
         util.raiseNotDefined()
 
 class AlphaBetaAgent(MultiAgentSearchAgent):
@@ -162,6 +157,7 @@ class AlphaBetaAgent(MultiAgentSearchAgent):
         Returns the minimax action using self.depth and self.evaluationFunction
         """
         "*** YOUR CODE HERE ***"
+
         util.raiseNotDefined()
 
 class ExpectimaxAgent(MultiAgentSearchAgent):
